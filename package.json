@@ -4,7 +4,7 @@
   "description": "Сборка gulp",
   "main": "index.html",
   "scripts": {
-    "deploy": "gh-pages -d Rest"
+    "deploy": "gh-pages -d sport-shop"
   },
   "author": "Alexandr",
   "license": "ISC",
