@@ -1,0 +1,370 @@
+//<Подключение шрифтов через Google fonts>===============================================================
+
+@import "fonts";
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@import "mixins";
+
+//<Шрифт по умолчанию>========================================================================================
+$fontFamily: "Bebas Neue";
+//</Шрифт по умолчанию>========================================================================================
+
+//<Переменные>========================================================================================
+$minWidth: 320px;
+$maxWidth: 1280;
+$maxWidthContainer: 915;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3:767.98;
+$md4:479.98;
+//</Переменные>========================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>========================================================================================
+@import "nullstyle";
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>========================================================================================
+
+//<ОБОЛОЧКА>========================================================================================
+body {
+    font-family: $fontFamily;
+    &._lock {
+        overflow: hidden;
+        .header__logo {
+            color: #fff;
+        }
+    }
+}
+.wrapper{
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &._load{
+    }
+}
+//</ОБОЛОЧКА>========================================================================================
+
+//<ОСНОВНАЯ СЕТКА>========================================================================================
+._container{
+    max-width: $maxWidthContainer+px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+//</ОСНОВНАЯ СЕТКА>========================================================================================
+@import "header";
+@import "ui";
+@import "swiper";
+@import "footer";
+
+.page {
+    margin: 115px 0 0 0;
+    @media (max-width:$md3+px) {
+        margin: 80px 0 0 0;
+    }
+}
+.main-slider {
+    background-color: #3bc3b5;
+    padding: 0 0 32px 0;
+	&__body {
+        padding-bottom: 10px;
+        @include responsive-size(padding-top, 65,0);
+	}
+
+	&__slide {
+	}
+}
+
+.slide-main {
+
+    &__container {
+        display: flex;
+        max-width: 850px;
+        padding: 0 15px;
+        margin: 0 auto;
+        justify-content: center;
+        @media (max-width:800px) {
+            flex-direction: column;    
+            padding: 0;
+        }
+    }
+
+    &__column {
+        flex: 0 1 50%;
+        &_img{
+            padding: 0 100px 0 0;
+            @media (max-width:850px) {
+                padding-right: 80px;
+            }
+            @media (max-width:800px) {
+                order:1;
+                margin:0 40px;
+                padding: 0;
+            }
+        }
+    }
+
+    &__content {
+        padding-top: 15px;
+        @include responsive-size(padding-bottom, 50,30);
+        min-height: 360px; 
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @media (max-width:800px) {
+            align-items: center;
+            min-height: 200px;
+        }
+    }
+
+    &__title {
+        line-height: 54px;
+        color: #ffffff;
+        margin: 0 0 26px 0;
+        @include responsive-size(font-size, 61,35);
+        @include responsive-size(margin-bottom, 26,15);
+    }
+
+    &__text {
+        font-family: 'Open Sans';
+        line-height: 28px;
+        color: #ffffff;
+        margin: 0 0 30px 0;
+        flex:  1 1 auto;
+        @include responsive-size(font-size, 17,15);
+        @media (max-width:800px) {
+            text-align: center;
+            padding: 0 10px;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        line-height: 19px;
+        color: #ffffff;
+        padding: 13px 28px;
+        background-color: rgba(255,255,255,0.0);
+        border: 3px solid #ffffff;
+        border-radius: 15px;
+        transition: all 0.3s ease 0s;
+        @include responsive-size(font-size, 27,20);
+        @include responsive-size(padding-left, 28,18);
+        @include responsive-size(padding-right, 28,18);
+        @media (any-hover:hover) {
+            &:hover {
+                background-color: rgba(255,255,255,0.5);
+            }
+        }
+    }
+
+    &__image {
+        width: 100%;
+        max-height: 330px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: cover;
+        img {
+            object-fit: cover;
+            max-width: 100%;
+            max-height: 320px;
+        }
+    }
+}
+
+.slider {
+    &__controls {
+    }
+}
+.controls-slider {
+    &__dotts {
+    }
+}
+
+//============================================================================================
+.brands {
+	&__slider {
+	}
+}
+.slider-brands {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1420px;
+    padding: 0 200px;
+
+    @media (max-width:1240px) {
+        padding: 0 100px;
+    }
+    @media (max-width:800px) {
+        padding: 0 50px;
+    }
+	&__body {
+        
+	}
+
+	&__slide {
+	}
+}
+
+.slide-brands {
+	&__container {
+        display: grid;
+        grid-template-columns: 59% 41%;
+        grid-template-rows: 190px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-right: 1px solid gray;
+        border-left: 1px solid gray;
+	}
+
+	&__column { 
+	}
+
+	&__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 5px;
+        img {
+            max-width: 100%;
+        }
+	}
+
+	&__content {
+	}
+
+	&__title {
+        font-size: 27px;
+        line-height: 25px;
+        margin: 0 0 20px 0;
+        padding: 0 5px 0 0;
+        color: #afafaf;
+	}
+
+	&__link {
+        
+    }
+}
+
+.control-main-slider {
+    &__arrows {
+    }
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translate(0px,-50%);
+        cursor: pointer;
+        @include responsive-size(width,29,15);  
+        @include responsive-size(height,88,44);  
+        &_prev {
+            left: 0;
+            background: url('../img/icons/arrow.png') left no-repeat;
+            @include responsive-size(margin-left, 32,5);
+            @include responsive-size(margin-right, 67,10);
+        }
+
+        &_next {
+            right: 0;
+            background: url('../img/icons/arrow.png') left no-repeat;
+            transform: rotate(180deg) translate(0px,50%);
+            @include responsive-size(margin-right, 32,5);
+            @include responsive-size(margin-left, 67,10);
+        }
+    }
+}
+
+
+//============================================================================================
+.products {
+
+    &__title {
+        background-color: #3cc2b9;
+        font-size: 31px;
+        line-height: 25px;
+        color: #ffffff;
+        padding: 22px 0;
+    }
+
+    &__container {
+        padding: 48px 10px 26px;
+        @media (max-width:$md3+px) {
+            padding: 28px 10px 18px;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 27px;
+        @media (max-width:$md3+px) {
+            padding: 0 15px;
+        }
+        @media (max-width:$md4+px) {
+            padding: 0px;
+        }
+    }
+
+    &__item {
+    }
+}
+
+.product {
+    flex: 0 1 33.333%;
+    margin:  0 -27px 47px -27px;
+    @media (max-width:$md3+px) {
+        flex: 0 1 50%;
+        margin: 0 -15px 27px -15px;
+    }
+    @media (max-width:$md4+px) {
+        flex: 0 1 100%;
+        margin: 0 0 20px 0;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 5px solid #3cc395;
+        padding: 24px 0 30px 0;
+        min-height: 100%;
+    }
+
+    &__image {
+        margin: 0 0 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1 1 auto;
+        img {
+            max-width: 100%;
+            max-height: 200px;
+        }
+    }
+
+    &__title {
+        font-size: 27px;
+        line-height: 25px;
+        color: #afafaf;
+        margin: 0 0 10px 0;
+        
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+    }
+
+    &__price {
+        font-size: 27px;
+        line-height: 25px;
+        color: #afafaf;
+        margin: 0 15px 0 0;
+        &::before{
+            content: '$';
+        }
+    }
+}

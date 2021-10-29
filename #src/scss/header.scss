@@ -1,0 +1,352 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 115px;
+    z-index: 50;
+    background-color: #fff;
+    @media (max-width:$md3+px) {
+        height: 80px;
+    }
+
+    &__container {
+        max-width: 1010px;
+        margin: 0 auto;
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    &__logo {
+        font-family: 'Lobster';
+        font-size: 49px;
+        line-height: 19px;
+        color: #3cc3b5;
+        transition: all 0.3s ease 0s;
+        @media (max-width:$md4+px) {
+            font-size: 35px;
+        }
+        z-index: 5;
+    }
+
+    &__search {
+    }
+    &__cart {
+    }
+
+    &__bottom {
+        background-color: #4ccfc1;
+        box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.07);
+    }
+}
+.search-form {
+    &._active {
+        .search-form__form {
+            opacity: 1;
+            top: 80%;
+            visibility: visible;
+        }
+    }
+    @media (max-width:$md3+px) {
+        margin-left: auto;
+    }
+
+    &__icon.fas{
+        position: relative;
+        font-size: 20px;
+        color: gray;
+        @media (min-width:$md3+px) {
+            display: none;
+        }
+    }
+
+    &__form {
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        display: flex;
+        align-items: center;
+        @media (max-width:$md3+px) {
+            position: absolute;
+            width:100%;
+            left: 0;
+            top: -100%;
+            z-index: 5;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease 0s;
+        }
+    }
+
+    &__input {
+        width: 436px;
+        height: 33px;
+        background-color: #ffffff;
+        padding: 0 15px;
+        font-family: "Open Sans";
+        @media (max-width:$md3+px) {
+            width: 100%;
+        }
+    }
+    &__button {
+        font-size: 20px;
+        margin: 0 10px 0 0 ;
+        &.fas {
+            color: gray;
+        }
+    }
+}
+
+.cart-header {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        margin:0 0 0 10px;
+        display: inline-block;
+        position: relative;
+        
+        span {
+            display: inline-block;
+            padding: 2px 7px;
+            border-radius: 50%;
+            background-color: orange;
+            color: #fff;
+        }
+    }
+
+    &__body {
+        background: #f4f5f7;
+        border: 1px solid #e0e0e0;
+        position: absolute;
+        top: 60px;
+        @include responsive-size(right, 80, 0);
+        padding: 15px;
+        width: 300px;
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease 0s;
+        transform: translate(0px, 20px);
+        ._active &{
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0px, 0px);
+        }
+    }
+
+    &__list {
+    }
+    &__text {
+        font-size: 33px;
+        line-height: 19px;
+        color: #a1a1a1;
+        margin: 0 0 0 15px;
+        @media (max-width:$md4+px) {
+            font-size: 28px;
+            margin-left: 8px;
+        }
+        position: relative;
+        &::before {
+            content: "$";
+        }
+    }
+}
+
+.cart-list {
+    overflow: auto;
+    max-height: 200px;
+    &__image{
+        border: 1px solid gray;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    }
+
+    &__body{
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 0 0 10px;
+    }
+
+    &__title{
+        color: inherit;
+        font-weight: 600;
+        transition: color 0.3s ease 0s;
+        margin: 0 0 5px/16px * 1em 0;
+    }
+
+    &__quantity, &__price{
+        font-size: 14px;
+        margin: 0 0 5px/14px * 1em 0;
+    }
+
+    &__delete{
+        color:red;
+        font-size: 14px;
+        @media (any-hover: hover) {
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__item{
+        display: flex;
+        align-items: flex-start;
+        &:not(:last-child){
+            margin: 0 0 15px 0;
+        }
+    }
+}
+
+.menu {
+    &__body {
+        padding: 10px;
+        @media (max-width:$md3+px) {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: auto;
+            background-color: #4ccfc1;
+            box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.07);
+            transform: translate(-100%, -100%);
+            transition: all 0.3s ease 0s;
+            &._active {
+                transform: translate(0px, 0px);
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        @media (max-width:$md2+px) {
+            li{
+                &:not(:first-child) {
+                    padding: 0 15px;
+                }
+            }
+        }
+        @media (max-width:$md3+px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 60px;
+            position: relative;
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 30px;
+                background-color: #fff;
+            }
+            li {
+                padding: 15px 0!important;
+                border: none!important;
+            }
+        }
+        li {
+            &:not(:last-child) {
+                border-right: 2px solid #ffffff;
+            }
+            &:not(:first-child) {
+                padding: 0 20px;
+            }
+            &:first-child {
+                padding: 0 20px 0 0; 
+            }
+            &:last-child {
+                padding: 0 0 0 20px;
+            }
+        }
+    }
+
+    &__link {
+        line-height: 19px;
+        font-weight: 400;
+        color: #ffffff;
+        @include responsive-size(font-size,21, 10);
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        @media (max-width:$md2+px) {
+            font-size: 17px;
+        }
+        @media (max-width:$md3+px) {
+            font-size: 25px;
+        }
+    }
+}
+
+._flyImage{
+    opacity: 1;
+    position: fixed;
+    z-index: 100;
+    transition: all 1s ease 0s;
+}
+
+//<Burger>=================================================================================================
+.icon-menu{
+    display: none;
+    @media (max-width:$md3 + px) {
+        margin: 0 0 0 10px; 
+        display: block;
+        position: relative;
+        width: 30px;
+        height:18px;
+        cursor: pointer;
+        z-index: 5;
+        background-color: inherit;
+        span{
+            transition:all 0.3s ease 0s;
+            top:calc(50%-1px);
+            position:absolute;
+            width:100%;
+            height: 2px;
+            background-color: #4d4959;
+            left: 0;
+            &:first-child{
+                top: 0px;
+            }
+            &:last-child{
+                top: auto;
+                bottom: 0px;
+            }
+        }
+        &._active{
+            span{
+                background-color: #fff;
+                transform: scale(0);
+                &:first-child{
+                    transform: rotate(-45deg);
+                    top: calc(50% - 1px);
+                }
+                &:last-child{
+                    transform: rotate(45deg);
+                    bottom: calc(50% - 1px);
+                }
+            }
+        }
+    }
+}
+//</Burger>=================================================================================================
