@@ -13,6 +13,6 @@
 @mixin responsive-size ($property, $maxSize, $minSize) {
     #{$property}: $maxSize+px;
     @media (max-width:$maxWidthContainer+px) {
-        #{$property}: calc(#{$minSize+px} + (#{$maxSize} - #{$minSize}) * ((100vw - 320px) / (1270 - 320)));
+        #{$property}: calc(#{$minSize+px} + (#{$maxSize} - #{$minSize}) * ((100vw - 320px) / (#{$maxWidthContainer} - 320)));
     }
 }
