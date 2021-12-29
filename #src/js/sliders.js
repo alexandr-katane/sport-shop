@@ -64,11 +64,6 @@ if (document.querySelector('.main-slider__body')) {
         },
 
     });
-
-    mainSlider.on('slideChangeTransitionStart', function () {
-        let s = mainSl.querySelector('.swiper-slide-active');
-        s.querySelector('source').srcset = s.querySelector('source').nextElementSibling.getAttribute('src');
-    });
 }
 
 if (document.querySelector('.slider-brands__body ')) {
