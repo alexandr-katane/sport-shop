@@ -29,7 +29,17 @@ if (sliders) {
 function sliders_build_callback(params) { }
 
 
+
+
+
 if (document.querySelector('.main-slider__body')) {
+
+    //Устанавливаем первую картику
+    let mainSl = document.querySelector('.main-slider__body');
+    let firstImg = mainSl.querySelector('source');
+    firstImg.srcset = firstImg.nextElementSibling.getAttribute('data-src');
+
+
     let mainSlider = new Swiper('.main-slider__body', {
         observer: true,
         observeParents: true,
@@ -43,16 +53,26 @@ if (document.querySelector('.main-slider__body')) {
         autoplay: {
             delay: 5000,
         },
+        preloadImages: false,
+        lazy: {
+            loadOnTransitionStart: true,
+        },
         //Dotts
         pagination: {
             el: '.controls-slider__dotts',
             clickable: true,
         },
+
+    });
+
+    mainSlider.on('slideChangeTransitionStart', function () {
+        let s = mainSl.querySelector('.swiper-slide-active');
+        s.querySelector('source').srcset = s.querySelector('source').nextElementSibling.getAttribute('src');
     });
 }
 
 if (document.querySelector('.slider-brands__body ')) {
-    let mainSlider = new Swiper('.slider-brands__body ', {
+    let secondSlider = new Swiper('.slider-brands__body ', {
         observer: true,
         observeParents: true,
         watchOverflow: true,

@@ -1,3 +1,5 @@
+
+@@include('lazyLoading.js');
 @@include('functions.js');
 @@include('swiper.min.js');
 @@include('sliders.js');

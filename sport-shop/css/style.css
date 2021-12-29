@@ -93,7 +93,7 @@ h6 {
 }
 
 body {
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", cursive;
 }
 
 body._lock {
@@ -152,7 +152,7 @@ body._lock .header__logo {
 }
 
 .header__logo {
-  font-family: 'Lobster';
+  font-family: 'Lobster', cursive;
   font-size: 49px;
   line-height: 19px;
   color: #3cc3b5;
@@ -196,7 +196,7 @@ body._lock .header__logo {
   height: 33px;
   background-color: #ffffff;
   padding: 0 15px;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
 }
 
 .search-form__button {
@@ -1150,7 +1150,7 @@ button.swiper-pagination-bullet {
 }
 
 .footer__copy {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   line-height: 28px;
   font-weight: 400;
@@ -1206,7 +1206,7 @@ button.swiper-pagination-bullet {
 }
 
 .links-footer__link {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 28px;
   color: #ffffff;
@@ -1273,7 +1273,7 @@ button.swiper-pagination-bullet {
 }
 
 .slide-main__text {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   line-height: 28px;
   color: #ffffff;
   margin: 0 0 30px 0;
