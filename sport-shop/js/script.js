@@ -1,25 +1,3 @@
-
-let slidersParent = document.querySelectorAll('._swiper');
-console.log(slidersParent);
-
-if (slidersParent) {
-    for (let index = 0; index < slidersParent.length; index++) {
-        let parent = slidersParent[index];
-        let sources = parent.querySelectorAll('source');
-        if (sources) {
-            for (let index = 0; index < sources.length; index++) {
-                const source = sources[index];
-                //source.classList.add('swiper-lazy');
-                source.nextElementSibling.classList.add('swiper-lazy');
-                if (source.nextElementSibling.classList.contains('swiper-lazy-loaded')) {
-                    console.log(source);
-                    source.setAttribute('scrset', source.nextElementSibling.getAttribute('src'));
-                }
-                //source.setAttribute('data-scrset', source.nextElementSibling.getAttribute('data-src'));
-            }
-        }
-    }
-};
 function testWebP(callback) {
 
     var webP = new Image();
@@ -90,12 +68,6 @@ function sliders_build_callback(params) { }
 
 if (document.querySelector('.main-slider__body')) {
 
-    //Устанавливаем первую картику
-    let mainSl = document.querySelector('.main-slider__body');
-    let firstImg = mainSl.querySelector('source');
-    firstImg.srcset = firstImg.nextElementSibling.getAttribute('data-src');
-
-
     let mainSlider = new Swiper('.main-slider__body', {
         observer: true,
         observeParents: true,
@@ -109,21 +81,13 @@ if (document.querySelector('.main-slider__body')) {
         autoplay: {
             delay: 5000,
         },
-        preloadImages: false,
-        lazy: {
-            loadOnTransitionStart: true,
-        },
+
         //Dotts
         pagination: {
             el: '.controls-slider__dotts',
             clickable: true,
         },
 
-    });
-
-    mainSlider.on('slideChangeTransitionStart', function () {
-        let s = mainSl.querySelector('.swiper-slide-active');
-        s.querySelector('source').srcset = s.querySelector('source').nextElementSibling.getAttribute('src');
     });
 }
 
